@@ -59,6 +59,7 @@ public class SwarmWormModel extends HierarchicalModel<SwarmWormEntity> {
 
         this.animate(entity.walkAnimationState, SwarmWormAnimations.walk, ageInTicks, 1f);
         this.animate(entity.idleAnimationState, SwarmWormAnimations.idle, ageInTicks, 1f);
+        this.animate(entity.attackAnimationState, SwarmWormAnimations.attack, ageInTicks, 2f);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<SwarmWormEntity>> SWARMWORM =
             ENTITY_TYPES.register("swarmworm",() -> EntityType.Builder.of(SwarmWormEntity::new, MobCategory.MONSTER)
-                    .sized(1.1f,1.0f).build("swarmworm"));
+                    .sized(1f,0.5f).build("swarmworm"));
 
     public static void register(IEventBus eventBus){
 
