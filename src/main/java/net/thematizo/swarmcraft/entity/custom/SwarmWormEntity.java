@@ -85,7 +85,7 @@ public class SwarmWormEntity extends Monster implements Enemy {
             if (this.idleAnimationTimeout <= 0) {
                 this.idleAnimationTimeout = 20; // Length of idle animation
                 this.idleAnimationState.start(this.tickCount);
-                System.out.println("Handling Idle Animation");
+                //System.out.println("Handling Idle Animation");
             } else {
                 --this.idleAnimationTimeout;
             }
@@ -97,7 +97,7 @@ public class SwarmWormEntity extends Monster implements Enemy {
             if (this.walkAnimationTimeout <= 0) {
                 this.walkAnimationTimeout = 20; // Length of walking animation
                 this.walkAnimationState.start(this.tickCount);
-                System.out.println("Handling Walking Animation");
+                //System.out.println("Handling Walking Animation");
             } else {
                 --this.walkAnimationTimeout;
             }
@@ -126,7 +126,7 @@ public class SwarmWormEntity extends Monster implements Enemy {
         //System.out.println("Velocity: " + this.getDeltaMovement());
         //System.out.println("IdleAnimationTimeout: " + this.idleAnimationTimeout);
         //System.out.println("WalkingAnimationTimeout: " + this.walkAnimationTimeout);
-        System.out.println("AttackAnimationTimeout: " + this.attackAnimationTimeout);
+        //System.out.println("AttackAnimationTimeout: " + this.attackAnimationTimeout);
 
     }
 }

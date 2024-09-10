@@ -32,7 +32,7 @@ public class SwarmWormAttackGoal extends MeleeAttackGoal {
 
             if(isTimeToStartAttackAnimation()) {
                 entity.setAttacking(true);
-                System.out.println("Starting Attack Animation");
+                //System.out.println("Starting Attack Animation");
             }
 
             if(isTimeToAttack()) {
