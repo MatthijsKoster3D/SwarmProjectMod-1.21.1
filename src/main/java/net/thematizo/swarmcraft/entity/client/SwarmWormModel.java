@@ -12,10 +12,10 @@ import net.thematizo.swarmcraft.entity.custom.SwarmWormEntity;
 public class SwarmWormModel extends HierarchicalModel<SwarmWormEntity> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 
-    private final ModelPart body;
-    private final ModelPart middlebone;
-    private final ModelPart backbone;
-    private final ModelPart frontbone;
+    public final ModelPart body;
+    public final ModelPart middlebone;
+    public final ModelPart backbone;
+    public final ModelPart frontbone;
 
     public SwarmWormModel(ModelPart root) {
         this.body = root.getChild("body");
@@ -57,7 +57,7 @@ public class SwarmWormModel extends HierarchicalModel<SwarmWormEntity> {
 
         this.root().getAllParts().forEach(ModelPart::resetPose);
 
-        this.animateWalk(SwarmWormAnimations.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
+        this.animate(entity.walkAnimationState, SwarmWormAnimations.walk, ageInTicks, 1f);
         this.animate(entity.idleAnimationState, SwarmWormAnimations.idle, ageInTicks, 1f);
     }
 

@@ -17,9 +17,6 @@ import net.minecraft.world.level.Level;
 
 public class SwarmWormEntity extends Monster implements Enemy {
 
-    private static final EntityDataAccessor<Boolean> WALKING =
-            SynchedEntityData.defineId(SwarmWormEntity.class, EntityDataSerializers.BOOLEAN);
-
     public SwarmWormEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.xpReward = 50;
@@ -27,6 +24,9 @@ public class SwarmWormEntity extends Monster implements Enemy {
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+
+    public final AnimationState walkAnimationState = new AnimationState();
+    private int walkAnimationTimeout = 0;
 
     //public final AnimationState attackAnimationState = new AnimationState();
     //public int attackAnimationTimeout = 0;
@@ -50,22 +50,38 @@ public class SwarmWormEntity extends Monster implements Enemy {
     protected void addBehaviourGoals() {
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Monster.class, true));
 
     }
 
     private void setupAnimationStates() {
+        double horizontalMovement = this.getDeltaMovement().horizontalDistanceSqr();
 
-        // IDLE ANIMATION
-        if (this.idleAnimationTimeout <= 0) {
-            // THIS IS THE LENGTH OF THE ACTUAL ANIMATION,
-            // CHECK THAT IT IS THE SAME LENGTH AS THE ANIMATION IN BLOCKBENCH
-            this.idleAnimationTimeout = 40;
-            this.idleAnimationState.start(this.tickCount);
-        } else {
-            --this.idleAnimationTimeout;
+        // Handle idle animation
+        if (horizontalMovement < 0.0001) { // Entity is stationary
+            System.out.println("Handling Idle Animation");
+            if (this.idleAnimationTimeout <= 0) {
+                this.idleAnimationTimeout = 20; // Length of idle animation
+                this.idleAnimationState.start(this.tickCount);
+            } else {
+                --this.idleAnimationTimeout;
+            }
+
+            // Ensure walking animation is not active
+            this.walkAnimationTimeout = 0;
+
+        } else { // Entity is moving
+            System.out.println("Handling Walking Animation");
+            if (this.walkAnimationTimeout <= 0) {
+                this.walkAnimationTimeout = 20; // Length of walking animation
+                this.walkAnimationState.start(this.tickCount);
+            } else {
+                --this.walkAnimationTimeout;
+            }
+
+            // Ensure idle animation is not active
+            this.idleAnimationTimeout = 0;
+
         }
-
     }
 
     @Override
@@ -75,6 +91,9 @@ public class SwarmWormEntity extends Monster implements Enemy {
         if (this.level().isClientSide()) {
             this.setupAnimationStates();
         }
+        //System.out.println("Velocity: " + this.getDeltaMovement());
         System.out.println("IdleAnimationTimeout: " + this.idleAnimationTimeout);
+        System.out.println("WalkingAnimationTimeout: " + this.walkAnimationTimeout);
+
     }
 }
