@@ -2,6 +2,7 @@ package net.thematizo.swarmcraft;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -26,6 +27,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.thematizo.swarmcraft.entity.ModEntities;
+import net.thematizo.swarmcraft.entity.client.SwarmWormRenderer;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -40,18 +43,13 @@ public class SwarmCraftMod
     public SwarmCraftMod(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
-
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
-
-        // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        ModEntities.register(modEventBus);
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -82,6 +80,9 @@ public class SwarmCraftMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(ModEntities.SWARMWORM.get(), SwarmWormRenderer::new);
+            //ModEntities.register(FMLJavaModLoadingContext.get().getModEventBus());
+
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
