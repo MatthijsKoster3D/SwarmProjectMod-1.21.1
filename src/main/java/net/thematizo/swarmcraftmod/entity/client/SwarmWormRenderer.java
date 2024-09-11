@@ -1,12 +1,12 @@
-package net.thematizo.swarmcraft.entity.client;
+package net.thematizo.swarmcraftmod.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.thematizo.swarmcraft.SwarmCraftMod;
-import net.thematizo.swarmcraft.entity.custom.SwarmWormEntity;
+import net.thematizo.swarmcraftmod.SwarmCraftMod;
+import net.thematizo.swarmcraftmod.entity.custom.SwarmWormEntity;
 
 public class SwarmWormRenderer extends MobRenderer<SwarmWormEntity, SwarmWormModel> {
 

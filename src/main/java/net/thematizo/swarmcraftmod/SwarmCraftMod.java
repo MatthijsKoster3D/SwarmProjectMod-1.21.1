@@ -1,8 +1,9 @@
-package net.thematizo.swarmcraft;
+package net.thematizo.swarmcraftmod;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -14,8 +15,10 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.thematizo.swarmcraft.entity.ModEntities;
-import net.thematizo.swarmcraft.entity.client.SwarmWormRenderer;
+import net.thematizo.swarmcraftmod.entity.ModEntities;
+import net.thematizo.swarmcraftmod.entity.client.SwarmWormRenderer;
+import net.thematizo.swarmcraftmod.item.ModCreativeModeTabs;
+import net.thematizo.swarmcraftmod.item.ModItems;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -27,16 +30,20 @@ public class SwarmCraftMod
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public SwarmCraftMod(FMLJavaModLoadingContext context)
-    {
+    public SwarmCraftMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-        context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
         ModEntities.register(modEventBus);
 
+        modEventBus.addListener(this::addCreative);
+        //Forge Config
+        context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -49,6 +56,9 @@ public class SwarmCraftMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.GOLD_COIN);
+        }
 
     }
 
@@ -68,7 +78,6 @@ public class SwarmCraftMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             EntityRenderers.register(ModEntities.SWARMWORM.get(), SwarmWormRenderer::new);
-            //ModEntities.register(FMLJavaModLoadingContext.get().getModEventBus());
 
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");

@@ -1,14 +1,14 @@
-package net.thematizo.swarmcraft.event;
+package net.thematizo.swarmcraftmod.event;
 
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.thematizo.swarmcraft.SwarmCraftMod;
-import net.thematizo.swarmcraft.entity.ModEntities;
-import net.thematizo.swarmcraft.entity.client.ModModelLayers;
-import net.thematizo.swarmcraft.entity.client.SwarmWormModel;
-import net.thematizo.swarmcraft.entity.custom.SwarmWormEntity;
+import net.thematizo.swarmcraftmod.SwarmCraftMod;
+import net.thematizo.swarmcraftmod.entity.ModEntities;
+import net.thematizo.swarmcraftmod.entity.client.ModModelLayers;
+import net.thematizo.swarmcraftmod.entity.client.SwarmWormModel;
+import net.thematizo.swarmcraftmod.entity.custom.SwarmWormEntity;
 
 @Mod.EventBusSubscriber(modid = SwarmCraftMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {

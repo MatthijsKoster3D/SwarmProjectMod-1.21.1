@@ -1,4 +1,4 @@
-package net.thematizo.swarmcraft;
+package net.thematizo.swarmcraftmod;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

@@ -1,6 +1,5 @@
-package net.thematizo.swarmcraft.entity.custom;
+package net.thematizo.swarmcraftmod.entity.custom;
 
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -14,7 +13,7 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.thematizo.swarmcraft.entity.ai.SwarmWormAttackGoal;
+import net.thematizo.swarmcraftmod.entity.ai.SwarmWormAttackGoal;
 
 public class SwarmWormEntity extends Monster implements Enemy {
 

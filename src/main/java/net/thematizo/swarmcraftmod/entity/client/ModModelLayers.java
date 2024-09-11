@@ -1,8 +1,8 @@
-package net.thematizo.swarmcraft.entity.client;
+package net.thematizo.swarmcraftmod.entity.client;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
-import net.thematizo.swarmcraft.SwarmCraftMod;
+import net.thematizo.swarmcraftmod.SwarmCraftMod;
 
 public class ModModelLayers {
 

@@ -1,4 +1,4 @@
-package net.thematizo.swarmcraft.event;
+package net.thematizo.swarmcraftmod.event;
 
 public class ModEventBusClientEvents {
 

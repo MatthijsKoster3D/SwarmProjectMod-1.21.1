@@ -1,10 +1,10 @@
-package net.thematizo.swarmcraft.entity.ai;
+package net.thematizo.swarmcraftmod.entity.ai;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.thematizo.swarmcraft.entity.custom.SwarmWormEntity;
+import net.thematizo.swarmcraftmod.entity.custom.SwarmWormEntity;
 
 public class SwarmWormAttackGoal extends MeleeAttackGoal {
     private final SwarmWormEntity entity;

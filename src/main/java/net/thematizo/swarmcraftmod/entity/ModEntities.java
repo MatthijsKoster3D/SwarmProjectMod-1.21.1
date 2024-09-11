@@ -1,4 +1,4 @@
-package net.thematizo.swarmcraft.entity;
+package net.thematizo.swarmcraftmod.entity;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -6,8 +6,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.thematizo.swarmcraft.SwarmCraftMod;
-import net.thematizo.swarmcraft.entity.custom.SwarmWormEntity;
+import net.thematizo.swarmcraftmod.SwarmCraftMod;
+import net.thematizo.swarmcraftmod.entity.custom.SwarmWormEntity;
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
