@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "swarmcraftmod:item/swarm_wand_wood"
+  }
+}

@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.thematizo.swarmcraftmod.SwarmCraftMod;
 import net.thematizo.swarmcraftmod.entity.custom.SwarmWormEntity;
+import net.thematizo.swarmcraftmod.entity.particles.CustomParticleEntity;
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
@@ -16,6 +17,13 @@ public class ModEntities {
     public static final RegistryObject<EntityType<SwarmWormEntity>> SWARMWORM =
             ENTITY_TYPES.register("swarmworm",() -> EntityType.Builder.of(SwarmWormEntity::new, MobCategory.MONSTER)
                     .sized(1f,0.5f).build("swarmworm"));
+
+    public static final RegistryObject<EntityType<CustomParticleEntity>> CUSTOM_PARTICLE = ENTITY_TYPES.register("custom_particle",
+            () -> EntityType.Builder.<CustomParticleEntity>of(CustomParticleEntity::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F) // Adjust size as needed
+                    .clientTrackingRange(4)
+                    .updateInterval(10)
+                    .build("custom_particle"));
 
     public static void register(IEventBus eventBus){
 

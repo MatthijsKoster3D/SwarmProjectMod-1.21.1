@@ -1,6 +1,8 @@
 {
   "item.swarmcraftmod.gold_coin": "Gold Coin",
 
+  "item.swarmcraftmod.swarm_wand_wood": "Swarm Wand Wood",
+
   "creativetab.swarmcraftmod.swarm_craft_items": "Swarm Craft Items",
   "creativetab.swarmcraftmod.swarm_craft_weapons": "Swarm Craft Weapons"
 }
