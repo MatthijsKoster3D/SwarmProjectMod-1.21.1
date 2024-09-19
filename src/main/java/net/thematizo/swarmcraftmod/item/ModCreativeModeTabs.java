@@ -27,7 +27,7 @@ public class ModCreativeModeTabs {
                     .withTabsBefore(SWARM_CRAFT_ITEMS_TAB.getId())
                     .title(Component.translatable("creativetab.swarmcraftmod.swarm_craft_weapons"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.SWARM_WAND_WOOD.get());
+                        output.accept(ModItems.SWARM_WAND_FIRE.get());
 
 
                     }).build());

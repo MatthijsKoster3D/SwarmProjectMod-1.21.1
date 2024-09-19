@@ -16,6 +16,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.thematizo.swarmcraftmod.entity.ModEntities;
+import net.thematizo.swarmcraftmod.entity.client.FireProjectileRenderer;
 import net.thematizo.swarmcraftmod.entity.client.SwarmWormRenderer;
 import net.thematizo.swarmcraftmod.item.ModCreativeModeTabs;
 import net.thematizo.swarmcraftmod.item.ModItems;
@@ -78,6 +79,7 @@ public class SwarmCraftMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             EntityRenderers.register(ModEntities.SWARMWORM.get(), SwarmWormRenderer::new);
+            EntityRenderers.register(ModEntities.FIRE_PROJECTILE.get(), FireProjectileRenderer::new);
 
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
