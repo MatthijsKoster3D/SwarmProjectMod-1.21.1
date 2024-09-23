@@ -32,6 +32,7 @@ public class FireProjectileEntity extends Projectile {
         Vec3 direction = shooter.getLookAngle();
         setPos(shooter.getX(), shooter.getY() + shooter.getEyeHeight(), shooter.getZ());
         setDeltaMovement(direction.x * velocity, direction.y * velocity, direction.z * velocity);
+        System.out.println("does this shoot?");
     }
 
     @Override

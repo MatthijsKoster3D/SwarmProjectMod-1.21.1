@@ -16,12 +16,13 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<SwarmWormEntity>> SWARMWORM =
             ENTITY_TYPES.register("swarmworm",() -> EntityType.Builder.of(SwarmWormEntity::new, MobCategory.MONSTER)
-                    .sized(1f,0.5f).build("swarmworm"));
+                    .sized(1f,0.5f)
+                    .build("swarmworm"));
 
-    public static final RegistryObject<EntityType<FireProjectileEntity>> FIRE_PROJECTILE = ENTITY_TYPES.register("fire_projectile",
-            () -> EntityType.Builder.<FireProjectileEntity>of(FireProjectileEntity::new, MobCategory.MISC)
+    public static final RegistryObject<EntityType<FireProjectileEntity>> FIRE_PROJECTILE =
+            ENTITY_TYPES.register("fireball_projectile", () -> EntityType.Builder.of(FireProjectileEntity::new, MobCategory.MISC)
                     .sized(0.5F, 0.5F) // Adjust size as needed
-                    .build("fire_projectile"));
+                    .build("fireball_projectile"));
 
     public static void register(IEventBus eventBus){
 

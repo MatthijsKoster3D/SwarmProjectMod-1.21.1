@@ -34,6 +34,7 @@ public class SwarmWandFire extends Item {
 
             // Add cooldown to prevent spamming
             player.getCooldowns().addCooldown(this, 20);
+            System.out.println("Right Clicked");
         }
 
         return InteractionResultHolder.success(itemStack);

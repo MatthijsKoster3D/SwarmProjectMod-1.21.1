@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.thematizo.swarmcraftmod.SwarmCraftMod;
 import net.thematizo.swarmcraftmod.entity.ModEntities;
+import net.thematizo.swarmcraftmod.entity.client.FireballProjectileModel;
 import net.thematizo.swarmcraftmod.entity.client.ModModelLayers;
 import net.thematizo.swarmcraftmod.entity.client.SwarmWormModel;
 import net.thematizo.swarmcraftmod.entity.custom.SwarmWormEntity;
@@ -16,6 +17,8 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.SWARMWORM_LAYER, SwarmWormModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.FIREPROJECTILE_LAYER, FireballProjectileModel::createBodyLayer);
+        System.out.println("ModEventBusEvents gets called");
     }
 
     @SubscribeEvent

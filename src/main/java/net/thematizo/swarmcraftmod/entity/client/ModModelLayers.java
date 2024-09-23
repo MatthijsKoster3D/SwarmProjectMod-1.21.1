@@ -10,7 +10,7 @@ public class ModModelLayers {
             ResourceLocation.fromNamespaceAndPath(SwarmCraftMod.MOD_ID,"swarmworm"), "main");
 
     public static final ModelLayerLocation FIREPROJECTILE_LAYER = new ModelLayerLocation(
-            ResourceLocation.fromNamespaceAndPath(SwarmCraftMod.MOD_ID,"fire_projectile"), "main");
+            ResourceLocation.fromNamespaceAndPath(SwarmCraftMod.MOD_ID,"fireball_projectile"), "main");
 
 
 }

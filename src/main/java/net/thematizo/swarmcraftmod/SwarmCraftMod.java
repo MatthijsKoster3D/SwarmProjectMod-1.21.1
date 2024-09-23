@@ -18,6 +18,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.thematizo.swarmcraftmod.entity.ModEntities;
 import net.thematizo.swarmcraftmod.entity.client.FireProjectileRenderer;
 import net.thematizo.swarmcraftmod.entity.client.SwarmWormRenderer;
+import net.thematizo.swarmcraftmod.event.ModEventBusEvents;
 import net.thematizo.swarmcraftmod.item.ModCreativeModeTabs;
 import net.thematizo.swarmcraftmod.item.ModItems;
 import org.slf4j.Logger;
